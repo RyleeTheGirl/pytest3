@@ -1,6 +1,6 @@
 import os
 import pytest
-import comp630
+import Comp630
 import boto3
 from moto import mock_s3
 # test bucket specific to class and person
