@@ -15,10 +15,12 @@ jobs:
       with:
         python-version: 3.7
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: Fooji/create-aws-profile-action@v1
       with:
-        role-to-assume: arn:aws:iam::123456789100:role/localstack
-        aws-region: us-east-2
+        profile: localstack
+        region: us-west-1
+        key: xxx
+        secret: xxx
     - name: Add conda to system path
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
