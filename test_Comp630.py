@@ -2,13 +2,13 @@ import os
 import pytest
 import Comp630
 import boto3
-# from moto import mock_s3
+from moto import mock_s3
 # test bucket specific to class and person
 TEST_BUCKET = "comp630-rylee"
 TEST_FILE = "ryleecomp630.moto"
 
 
-# @mock_s3
+@mock_s3
 def test_upload():
     # make scope global
     global TEST_BUCKET
@@ -19,5 +19,5 @@ def test_upload():
     conn.create_bucket(Bucket=TEST_BUCKET)
     with open(TEST_FILE, "rb") as f:
         object_name = os.path.basename(f.name)
-        comp630.to_the_cloud(f.name, TEST_BUCKET, TEST_FILE)
+        Comp630.to_the_cloud(f.name, TEST_BUCKET, TEST_FILE)
     assert True
